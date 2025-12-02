@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+langchain
+langgraph
+langchain-community
+langchain-text-splitters
+
+# NEW: Groq + Nomic
+langchain-groq
+langchain-nomic
+
+pymongo
+python-multipart
+pdfplumber
+pillow
+pytesseract
+python-docx
