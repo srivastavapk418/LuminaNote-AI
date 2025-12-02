@@ -1,49 +1,139 @@
-# AI PDF Tutor (Full Stack)
+⭐ LuminoNote AI
 
-This zip includes:
+Your all-in-one AI assistant for understanding PDFs, images, handwritten notes, DOCX files, and code files.
+Upload → Extract → Summarize → Practice.
 
-- `backend/` – Python FastAPI + LangGraph backend
-- `frontend/` – React (Vite) frontend
+🚀 Features
 
-## Backend
+Supports PDF, scanned PDFs, images, DOCX, TXT, code files
 
-Features:
+OCR support for handwritten & scanned notes (Tesseract + preprocessing)
 
-- Upload PDF or image
-- Extract text (pdfplumber / pytesseract)
-- Store original file in MongoDB
-- Chunk text + store embeddings
-- LangGraph flows for:
-  - MCQ generation
-  - Full summary
-  - Topic-based summary
+Full summaries powered by Groq LLM (free)
 
-Run locally:
+Topic-based summaries
 
-```bash
+AI-generated MCQs with answers + explanations
+
+Semantic vector search using Nomic embeddings (free)
+
+Auto-cleanup: documents older than 3 days are deleted
+
+Modern React + Vite UI
+
+🧠 Tech Stack
+Frontend
+
+React, Vite, JavaScript
+
+Backend
+
+FastAPI, Python
+
+Groq LLM (Mixtral / Gemma)
+
+Nomic embeddings
+
+LangGraph pipelines
+
+Tesseract OCR
+
+PyMuPDF, python-docx
+
+Database
+
+MongoDB Atlas
+
+📁 Project Structure
+LuminoNote-AI/
+├── frontend/
+├── backend/
+│   ├── app/
+│   ├── services/
+│   ├── routers/
+│   └── requirements.txt
+└── README.md
+
+⚙️ Local Setup
+Backend
 cd backend
 python -m venv .venv
-source .venv/bin/activate  # or .venv\Scripts\activate on Windows
+.\.venv\Scripts\activate
 pip install -r requirements.txt
-export OPENAI_API_KEY=your_key
-export MONGODB_URI=your_mongodb_uri
-export MONGODB_DB=ai_pdf_tutor
-bash run.sh
-```
+pip install python-docx
 
-Backend runs on `http://localhost:8000`.
 
-## Frontend
+Create .env inside backend (or export env variables):
 
-React app that talks to the backend.
+GROQ_API_KEY=xxx
+NOMIC_API_KEY=xxx
+MONGODB_URI=xxx
+MONGODB_DB=ai_pdf_tutor
 
-```bash
+
+Run backend:
+
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+Frontend
 cd frontend
 npm install
-echo "VITE_BACKEND_URL=http://localhost:8000" > .env
+
+
+Create .env:
+
+VITE_BACKEND_URL=http://localhost:8000
+
+
+Run frontend:
+
 npm run dev
-```
 
-Open `http://localhost:5173`.
+🌐 Deployment
+Frontend → Vercel
 
-For Vercel, deploy the `frontend` folder and set `VITE_BACKEND_URL` env var to your deployed backend URL.
+Upload /frontend folder
+
+Set env variable:
+
+VITE_BACKEND_URL=https://your-backend-url
+
+Backend → Railway/Render
+
+Upload /backend folder
+
+Add env variables:
+
+GROQ_API_KEY=
+NOMIC_API_KEY=
+MONGODB_URI=
+MONGODB_DB=ai_pdf_tutor
+
+
+Start command:
+
+uvicorn app.main:app --host 0.0.0.0 --port $PORT
+
+🧪 API Endpoints
+
+POST /api/documents/upload
+
+POST /api/summaries/full
+
+POST /api/summaries/topic
+
+POST /api/questions
+
+🎯 Why LuminoNote AI?
+
+Free LLMs & embeddings (Groq + Nomic)
+
+Understands multiple file types
+
+Accurate summaries
+
+MCQs for exam prep
+
+Handles handwriting + scanned notes
+
+Lightweight, fast, modern UI
