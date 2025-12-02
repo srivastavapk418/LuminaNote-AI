@@ -1,5 +1,7 @@
 # ⭐ LuminoNote AI:
 Your smart study assistant that understands PDFs, images, handwritten notes, DOCX files, and code files — and turns them into summaries, topic explanations, and MCQs.
+### 🔗 Project Link: 
+- Click here ⬅️[https://lumina-note-ai.vercel.app/]
 
 ---
 
